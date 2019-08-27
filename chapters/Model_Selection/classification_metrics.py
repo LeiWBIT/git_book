@@ -172,7 +172,7 @@ def test_roc_auc_score():
     roc_auc=dict()
     for i in range(n_classes):
         fpr[i], tpr[i], _ = roc_curve(y_test[:, i],y_score[:, i])
-        roc_auc[i] = roc_auc_score(fpr[i], tpr[i])
+        roc_auc[i] = roc_auc_score(y_test[:, i],y_score[:, i])
         ax.plot(fpr[i],tpr[i],label="target=%s,auc=%s"%(i,roc_auc[i]))
     ax.plot([0, 1], [0, 1], 'k--')
     ax.set_xlabel("FPR")
